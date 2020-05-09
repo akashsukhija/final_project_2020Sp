@@ -28,7 +28,7 @@ def create_map(d, hypothesis):
     d = add_routes(d,h_multiplier)
     return d
 
-def calculate_traffic(h_multiplier, roadtype):
+def assign_traffic(h_multiplier, roadtype):
     '''
     As part of this function, we assign traffic to each type of route and the number of cars satisfying the hypothesis parameter.
     For an InterState Type Road we have assumed the maximum traffic, followed by State Type Road and then to the City Roads.
@@ -37,9 +37,9 @@ def calculate_traffic(h_multiplier, roadtype):
     :param h_multiplier: The h_multiplier variable is chosen in the create_map function it may vary according to the hypothesis under test
     :param roadtype: roadtype is variable which represents the different types of variables
     :return: A dictionary called car_stat is returned by the function
-    >>> calculate_traffic(10,"State")
+    >>> assign_traffic(10,"State")
     {'h_param': 0, 'autonomous': 21, 'no_of_cars': 122}
-    >>> calculate_traffic(0,"InterState")
+    >>> assign_traffic(0,"InterState")
     {'h_param': 0, 'autonomous': 22, 'no_of_cars': 374}
     '''
     if h_multiplier == 0 and roadtype == "State":
@@ -83,37 +83,37 @@ def add_routes(d,h_multiplier):
                 'Williamson', 'Winnebago', 'Woodford']
     counties = counties[:42]
     for i in range(1, len(counties)):
-        car_stat = calculate_traffic(h_multiplier,"State")
+        car_stat = assign_traffic(h_multiplier,"State")
         distance = random.uniform(15, 25)
         d.add_edge(counties[i], counties[i - 1], weight=distance, type="State", car_stat=car_stat)
         d.add_edge(counties[i - 1], counties[i], weight=distance, type="State", car_stat=car_stat)
     distance = random.uniform(15, 25)
-    car_stat = calculate_traffic(h_multiplier,"State")
+    car_stat = assign_traffic(h_multiplier,"State")
     d.add_edge(counties[0], counties[i], weight=distance, type="State", car_stat=car_stat)
     d.add_edge(counties[i], counties[0], weight=distance, type="State", car_stat=car_stat)
 
     # InterState Roads
     for i in range(1, 10):
         distance = random.uniform(75, 100)
-        car_stat = calculate_traffic(h_multiplier, "InterState")
+        car_stat = assign_traffic(h_multiplier, "InterState")
         d.add_edge(counties[i * 3], counties[i * 3 - 3], weight=distance, type="InterState",car_stat=car_stat)
         d.add_edge(counties[(i * 3) - 3], counties[(i * 3)], weight=distance, type="InterState",car_stat=car_stat)
 
     for i in range(1, 9):
         distance = random.uniform(100, 125)
-        car_stat = calculate_traffic(h_multiplier, "InterState")
+        car_stat = assign_traffic(h_multiplier, "InterState")
         d.add_edge(counties[i * 4], counties[(i * 4) - 4], weight=distance, type="InterState", car_stat=car_stat)
         d.add_edge(counties[(i * 4) - 4], counties[(i * 4)], weight=distance, type="InterState", car_stat=car_stat)
 
     # City Roads
     for i in range(1, 7):
         distance = random.uniform(100, 125)
-        car_stat = calculate_traffic(h_multiplier, "City")
+        car_stat = assign_traffic(h_multiplier, "City")
         d.add_edge(counties[i * 5], counties[(i * 5) - 5 - i], weight=distance, type="city", car_stat=car_stat)
         d.add_edge(counties[(i * 5) - 5 - i], counties[(i * 5)], weight=distance, type="city", car_stat=car_stat)
     for i in range(1, 6):
         distance = random.uniform(150, 175)
-        car_stat = calculate_traffic(h_multiplier, "City")
+        car_stat = assign_traffic(h_multiplier, "City")
         d.add_edge(counties[i * 6], counties[(i * 6) - 6 - i], weight=distance, type="city", car_stat=car_stat)
         d.add_edge(counties[(i * 6) - 6 - i], counties[(i * 6)], weight=distance, type="city", car_stat=car_stat)
     return d
@@ -210,7 +210,7 @@ def run_experiment(hypothesis):
     """
     df_final = pd.DataFrame(columns=['State', 'InterState', 'City'])
 
-    for i in range(365):
+    for i in range(182):
         d = initializemap(hypothesis)
         data = accidents_per_roadtype(d, hypothesis)
         df = pd.DataFrame([data], columns=data.keys())
@@ -224,21 +224,21 @@ def run_experiment(hypothesis):
     print(df_final)
     print(alcohol_stats)
     df_final.iloc[0:0]
-    #route_display(d)
+    route_display(d)
     return list(df_final['Total'])
 
 
 # Main Function
 if __name__ == "__main__":
-    no_of_days = list(range(1,366))
     print("Accidents on State,Interstate and City due to Alcohol:")
     alcohol = run_experiment("alcohol")
 
-    print("Accidents on State,Interstate and City due to Distraction")
+    print("Accidents on State,Interstate and City due to Distraction:")
     distraction = run_experiment("distraction")
 
-    print("Accidents on State,Interstate and City due to Autonomous")
+    print("Accidents on State,Interstate and City due to Autonomous:")
     autonomous = run_experiment("autonomous")
+    no_of_days = list(range(1, len(autonomous) + 1))
 
     plt.plot(no_of_days,alcohol, label = "Alcohol")
     plt.plot(no_of_days, distraction,label = "Distraction")
