@@ -1,10 +1,10 @@
-#Determining the probability of a crash of a vehicle under different conditions using Monte Carlo Simulation
+**Determining the probability of a crash of a vehicle under different conditions using Monte Carlo Simulation**
 
 Many lives are lost and countless people are injured all around the world due to driving under the influence of alcohol or due to distracted driving because of cellphone usage. In 2018, there were 319,146 crashes involving motor vehicles in Illinois. Injury crashes accounted for 21.1% of these crashes (67,453), while fatal crashes (951) accounted for less than 1% of these crashes. There was an average of 1.1 deaths per fatal crash.
 
 As part of our project we are trying to simulate the number of crashes for an autonomous vehicles and comparing it to the number of crashes occuring due to driving under the influence of alcohol and distracted driving due to cellphone usage.
 
-Project Proposal:
+**Project Proposal:**
 We plan to use the Monte Carlo Simulation technique to calculate the probability of autonomous vehicles colliding with another object in its route.
 We are keeping the following variables constant:
 Number of Turns
@@ -17,7 +17,7 @@ Hypothesis 1:
 Hypothesis 2: 
     The number of overall accidents decreases when people can use cell phones only in Autonomous vehicles. (Do not use cell phones and drive cars)
 
-Assumptions made in the Project
+**Assumptions:**
 Percentage of Car Collisions per 100 Vehicles: 3%
 Percentage of Collisions per 100 Vehicles including Drivers under Influence of Alcohol:  3.3%
 Percentage of Collisions per 100 Vehicles including Drivers distracted due to Cell phone usage: 3.24%
