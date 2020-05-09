@@ -1,2 +1,27 @@
-# final_project
-Each team creates a fork from this for their course project
+#Determining the probability of a crash of a vehicle under different conditions using Monte Carlo Simulation
+
+Many lives are lost and countless people are injured all around the world due to driving under the influence of alcohol or due to distracted driving because of cellphone usage. In 2018, there were 319,146 crashes involving motor vehicles in Illinois. Injury crashes accounted for 21.1% of these crashes (67,453), while fatal crashes (951) accounted for less than 1% of these crashes. There was an average of 1.1 deaths per fatal crash.
+
+As part of our project we are trying to simulate the number of crashes for an autonomous vehicles and comparing it to the number of crashes occuring due to driving under the influence of alcohol and distracted driving due to cellphone usage.
+
+Project Proposal:
+We plan to use the Monte Carlo Simulation technique to calculate the probability of autonomous vehicles colliding with another object in its route.
+We are keeping the following variables constant:
+Number of Turns
+Speed Limit
+Country (Driving Rules)
+Type of Route (Highway, In City)
+ 
+Hypothesis 1: 
+     The number of overall accidents decreases when people who consume alcohol travel only in autonomous vehicles (Do not drive cars).
+Hypothesis 2: 
+    The number of overall accidents decreases when people can use cell phones only in Autonomous vehicles. (Do not use cell phones and drive cars)
+
+
+References: 
+1. https://www.willenslaw.com/distracted-driving-a-leading-cause-of-car-accidents-in-chicago/
+2. http://www.idot.illinois.gov/Assets/uploads/files/Transportation-System/Resources/Safety/Crash-Reports/crash-facts/2018%20Crash%20Facts.pdf
+3. https://networkx.github.io/documentation/stable/reference/classes/digraph.html
+4. https://docs.scipy.org/doc/numpy-1.9.2/reference/generated/numpy.random.binomial.html
+5. https://docs.python.org/3/library/random.html
+6. https://pandas.pydata.org/docs/
