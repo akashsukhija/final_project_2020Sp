@@ -17,6 +17,12 @@ Hypothesis 1:
 Hypothesis 2: 
     The number of overall accidents decreases when people can use cell phones only in Autonomous vehicles. (Do not use cell phones and drive cars)
 
+Assumptions made in the Project
+Percentage of Car Collisions per 100 Vehicles: 3%
+Percentage of Collisions per 100 Vehicles including Drivers under Influence of Alcohol:  3.3%
+Percentage of Collisions per 100 Vehicles including Drivers distracted due to Cell phone usage: 3.24%
+Percentage of Collisions of Autonomous Vehicles per 100 Vehicles: 2%
+
 
 References: 
 1. https://www.willenslaw.com/distracted-driving-a-leading-cause-of-car-accidents-in-chicago/
