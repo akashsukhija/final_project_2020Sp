@@ -17,6 +17,7 @@ Hypothesis 1:
 Hypothesis 2: 
     The number of overall accidents decreases when people can use cell phones only in Autonomous vehicles. (Do not use cell phones and drive cars)
 
+![Assumptions](https://github.com/akashsukhija/final_project_2020Sp/blob/master/Assumptions.jpg)
 
 References: 
 1. https://www.willenslaw.com/distracted-driving-a-leading-cause-of-car-accidents-in-chicago/
