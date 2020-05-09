@@ -12,9 +12,9 @@ Speed Limit
 Country (Driving Rules)
 Type of Route (Highway, In City)
  
-Hypothesis 1: 
+**Hypothesis 1:**
      The number of overall accidents decreases when people who consume alcohol travel only in autonomous vehicles (Do not drive cars).
-Hypothesis 2: 
+**Hypothesis 2:**
     The number of overall accidents decreases when people can use cell phones only in Autonomous vehicles. (Do not use cell phones and drive cars)
 
 **Assumptions:**
