@@ -25,3 +25,4 @@ References:
 4. https://docs.scipy.org/doc/numpy-1.9.2/reference/generated/numpy.random.binomial.html
 5. https://docs.python.org/3/library/random.html
 6. https://pandas.pydata.org/docs/
+7. https://stackoverflow.com/questions/30362391/how-do-you-find-the-first-key-in-a-dictionary 
