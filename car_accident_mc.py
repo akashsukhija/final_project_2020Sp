@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 import pandas as pd
+from prettytable import PrettyTable
 random.seed(10)
 
 
@@ -210,36 +211,57 @@ def run_experiment(hypothesis):
     """
     df_final = pd.DataFrame(columns=['State', 'InterState', 'City'])
 
-    for i in range(182):
+    for i in range(182):                 #Range can be changed to the change the number of Simulations
         d = initializemap(hypothesis)
         data = accidents_per_roadtype(d, hypothesis)
         df = pd.DataFrame([data], columns=data.keys())
         df_final = pd.concat([df_final, df])
 
-    alcohol_stats = df_final.agg(
-        {'State': ['min', 'max', 'median', 'mean'], 'InterState': ['min', 'max', 'median', 'mean'],
-         'City': ['min', 'max', 'median', 'mean']})
+    #stats = df_final.agg({'State': ['min', 'max', 'median', 'mean'], 'InterState': ['min', 'max', 'median', 'mean'],'City': ['min', 'max', 'median', 'mean']})
 
     df_final['Total'] = df_final['State'] + df_final['InterState'] + df_final['City']
-    print(df_final)
-    print(alcohol_stats)
+    #print(df_final)
+    #print(stats)
     df_final.iloc[0:0]
     route_display(d)
     return list(df_final['Total'])
 
+def final_stats(no_of_days,alcohol,distraction,autonomous):
+    df1 = pd.DataFrame()
+    df1['No_Of_Days'] = no_of_days
+    df1['Alcohol'] = alcohol
+    df1['Distraction'] = distraction
+    df1['Experiment'] = autonomous
+    z = PrettyTable()
+    z.add_column("Number of Days", no_of_days)
+    z.add_column("Accidents due to Alcohol", alcohol)
+    z.add_column("Accidents due to Distraction", distraction)
+    z.add_column("Accidents due to Autonomous", autonomous)
+    print(z)
+    print('Average daily accidents due to Alcohol, Autonomous Vehicles and Other Factors:', df1['Alcohol'].mean())
+    print('Average daily accidents due to Distracted Driving, Autonomous Vehicles and Other Factors:', df1['Distraction'].mean())
+    print('Average daily accidents due to Autonomous Vehicles and Other Factors:', df1['Experiment'].mean())
 
 # Main Function
 if __name__ == "__main__":
-    print("Accidents on State,Interstate and City due to Alcohol:")
+    print(" Experiment 1 : Running Experiment to Calculate Number of Accidents due to Alcohol, Autonomous Vehicles and Other Factors...")
+    print('Printing Map for Experiment 1')
     alcohol = run_experiment("alcohol")
 
-    print("Accidents on State,Interstate and City due to Distraction:")
+    print("Experiment 2: Running Experiment to Calculate Number of Accidents due to Distracted Driving, Autonomous Vehicles and Other Factors...")
+    print('Printing Map for Experiment 2')
     distraction = run_experiment("distraction")
 
-    print("Accidents on State,Interstate and City due to Autonomous:")
+    print("Experiment 3 : Running Experiment to Calculate Number of Accidents due to Autonomous Vehicles and Other Factors...")
+    print('Printing Map for Experiment 3')
     autonomous = run_experiment("autonomous")
     no_of_days = list(range(1, len(autonomous) + 1))
 
+    print("Final Statistics:")
+    #Printing Final Stats in PrettyTable
+
+    final_stats(no_of_days, alcohol, distraction, autonomous)
+    #Printing Final Graph
     plt.plot(no_of_days,alcohol, label = "Alcohol")
     plt.plot(no_of_days, distraction,label = "Distraction")
     plt.plot(no_of_days, autonomous , label = "Autonomous")
@@ -247,4 +269,3 @@ if __name__ == "__main__":
     plt.ylabel("Accidents")
     plt.legend()
     plt.show()
-
