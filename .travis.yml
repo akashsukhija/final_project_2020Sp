@@ -11,6 +11,8 @@ install:
   - pip install matplotlib
   - pip install networkx
   - pip install prettytable
+  - pip install pandas
+  - pip install numpy
 
 # command to run Doctests
 script: pytest --doctest-modules
