@@ -9,6 +9,8 @@ matrix:
 
 install:
   - pip install matplotlib
+  - pip install networkx
+  - pip install prettytable
 
 # command to run Doctests
 script: pytest --doctest-modules
