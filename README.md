@@ -1,9 +1,9 @@
 ## Team members: Siddharth Shetty, Akash Sukhija
 
-## Contributions:
-## Siddharth : Worked on create_map, assign_traffic, add_routes, initializemap, accidents_per_edge, accidents_per_roadtype, route_display, run_experiment, main function, doctests and docstrings.
-## Akash : Worked on create_map, assign_traffic, add_routes, accidents_per_edge (Stats), run_experiment, final_stats, main function. Travis CI integration, doctests and docstrings.
-## Equal contribution in making presentations.
+###  Contributions:
+###  Siddharth : Worked on create_map, assign_traffic, add_routes, initializemap, accidents_per_edge, accidents_per_roadtype, route_display, run_experiment, main function, doctests and docstrings.
+###  Akash : Worked on create_map, assign_traffic, add_routes, accidents_per_edge (Stats), run_experiment, final_stats, main function. Travis CI integration, doctests and docstrings.
+###  Equal contribution in making presentations.
 
 
 **Determining the probability of a crash of a vehicle under different conditions using Monte Carlo Simulation**
