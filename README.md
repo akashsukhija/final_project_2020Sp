@@ -1,3 +1,11 @@
+## Team members: Siddharth Shetty, Akash Sukhija
+
+## Contributions:
+## Siddharth : Worked on create_map, assign_traffic, add_routes, initializemap, accidents_per_edge, accidents_per_roadtype, route_display, run_experiment, main function, doctests and docstrings.
+## Akash : Worked on create_map, assign_traffic, add_routes, accidents_per_edge (Stats), run_experiment, final_stats, main function. Travis CI integration, doctests and docstrings.
+## Equal contribution in making presentations.
+
+
 **Determining the probability of a crash of a vehicle under different conditions using Monte Carlo Simulation**
 
 Many lives are lost and countless people are injured all around the world due to driving under the influence of alcohol or due to distracted driving because of cellphone usage. In 2018, there were 319,146 crashes involving motor vehicles in Illinois. Injury crashes accounted for 21.1% of these crashes (67,453), while fatal crashes (951) accounted for less than 1% of these crashes. There was an average of 1.1 deaths per fatal crash.
